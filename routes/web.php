@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Member;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/membership', function () {
+        return view('membership', [
+            'members' => Member::paginate(8),
+        ]);
+    })->name('membership');
 });

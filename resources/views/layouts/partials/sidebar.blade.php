@@ -3,7 +3,7 @@
     <div @click.away="open = false" class="flex flex-col w-full text-white flex-shrink-0 border-b lg:border-0"
         x-data="{ open: false }">
         <div
-            class="flex-shrink-0 px-8 lg:px-6 text-left pt-4 pb-4 lg:pt-8 lg:pb-4 flex flex-row lg:flex-col gap-4 items-start justify-between lg:mb-4">
+            class="flex-shrink-0 px-4 lg:px-8 text-left pt-4 pb-4 lg:pt-8 lg:pb-4 flex flex-row lg:flex-col gap-4 items-start justify-between lg:mb-4">
             <a href="{{ route('dashboard') }}">
                 {{-- <x-application-logo class="hidden lg:inline h-10 -mt-1 mr-3 mb-6" /> --}}
                 <span
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </a>
-            <button class=" lg:hidden focus:outline-none focus:shadow-outline text-gray-800" @click="open = !open">
+            <button class="lg:hidden focus:outline-none focus:shadow-outline text-gray-800" @click="open = !open">
                 <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
                     <path x-show="!open" fill-rule="evenodd"
                         d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
@@ -32,8 +32,8 @@
             </button>
         </div>
         <hr class="hidden lg:block h-px bg-teal-800/10 border-0">
-        <nav :class="{ 'block': open, 'hidden': !open }" class="flex-grow items-left lg:block px-6 pb-0 lg:pb-8">
-            <div class="space-y-3 mb-6 mt-8">
+        <nav :class="{ 'block': open, 'hidden': !open }" class="flex-grow items-left lg:block px-2 lg:px-6 pb-0 lg:pb-8">
+            <div class="space-y-3 mb-6 mt-2 lg:mt-6">
                 <a href="{{ route('dashboard') }}"
                     class="flex flex-row items-center hover:bg-teal-800/10 hover:text-gray-800 mt-3 lg:mt-0 px-4 py-2 transition-colors duration-300 rounded-full {{ request()->routeIs('dashboard') ? 'text-gray-800 bg-teal-800/10' : 'text-gray-800' }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dashboard w-7 h-7 mr-2"
@@ -49,8 +49,8 @@
             </div>
             <div class="ml-3 text-gray-800 font-bold mt-6 mb-3">User</div>
             <div class="space-y-3 mb-4">
-                <a href="#"
-                    class="flex flex-row items-center hover:bg-teal-800/10 hover:text-gray-800 mt-3 lg:mt-0 px-4 py-2 transition-colors duration-300 rounded-full text-gray-800">
+                <a href="{{ route('membership') }}"
+                    class="flex flex-row items-center hover:bg-teal-800/10 hover:text-gray-800 mt-3 lg:mt-0 px-4 py-2 transition-colors duration-300 rounded-full {{ request()->routeIs('membership') ? 'text-gray-800 bg-teal-800/10' : 'text-gray-800' }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users w-7 h-7 mr-2"
                         width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                         fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -104,7 +104,7 @@
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
                         @csrf
                         <a href="#"
-                            class="flex flex-row items-center mb-3 hover:bg-teal-800/20 hover:text-gray-800 mt-3 lg:mt-0 px-4 py-2 transition-colors duration-300 text-gray-800 font-semibold rounded-full"
+                            class="flex flex-row items-center hover:bg-teal-800/20 hover:text-gray-800 mt-3 lg:mt-0 px-4 py-2 transition-colors duration-300 text-gray-800 font-semibold rounded-full"
                             onclick="event.preventDefault();
                                 this.closest('form').submit();">
                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -121,9 +121,9 @@
                         </a>
                     </form>
                 </div>
-                <div class="lg:hidden flex items-center space-x-3 mb-6">
+                <div class="lg:hidden flex items-center space-x-3 mb-6 ml-4">
                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                        <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
+                        <img class="h-9 w-9 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
                             alt="{{ Auth::user()->name }}" />
                     @endif
                     <div class="flex flex-col">

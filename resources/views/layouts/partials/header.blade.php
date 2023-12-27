@@ -2,7 +2,7 @@
     <x-dropdown align="right" width="48">
         <x-slot name="trigger">
             <button
-                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium text-gray-800 bg-teal-800/10 hover:text-gray-900 focus:outline-none transition ease-in-out duration-200 rounded-full shadow">
+                class="inline-flex items-center px-3 py-2 border border-gray-300 text-sm leading-4 font-medium text-gray-800 bg-white hover:bg-teal-800/10 hover:text-gray-900 focus:outline-none transition ease-in-out duration-200 rounded-full shadow">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <img class="h-7 w-7 rounded-full object-cover mr-2" src="{{ Auth::user()->profile_photo_url }}"
                         alt="{{ Auth::user()->name }}" />

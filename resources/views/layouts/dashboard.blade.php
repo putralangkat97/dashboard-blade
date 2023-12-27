@@ -42,7 +42,7 @@
                         @include('layouts.partials.header')
                     </div>
 
-                    <div class="mt-10">
+                    <div class="mt-8">
                         {{ $slot }}
                     </div>
                 </div>
